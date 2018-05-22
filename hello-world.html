@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p v-if='message1'>我等会就消失了</p>
+        <p v-for='item in todos'>{{item.text}}</p>
+        <button v-on:click='reverseMessage'>点击反转</button>
+        <input v-model='message' />
+        
+        <todo-item v-bind:message = 'message1' v-if = 'message1'></todo-item>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+
+    <script>
+
+        Vue.component('todo-item',{
+            props : ['message'],
+            template : '<li>我是一个组件{{message}}</li>'
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello world',
+                message1: true,
+                todos: [{
+                        text: 'Learn JavaScript'
+                    },
+                    {
+                        text: 'Learn Vue'
+                    },
+                    {
+                        text: 'Build something awesome'
+                    }
+                ]
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
