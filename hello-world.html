@@ -16,7 +16,9 @@
         <button v-on:click='reverseMessage'>点击反转</button>
         <input v-model='message' />
         
-        <todo-item v-bind:message = 'message1' v-if = 'message1'></todo-item>
+        <todo-item v-bind:message = 'back' v-if = 'message1'></todo-item>
+        <p>{{now}}</p>
+        <p>{{message2}}</p>
     </div>
 
     <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
@@ -33,6 +35,7 @@
             data: {
                 message: 'hello world',
                 message1: true,
+                message2: 'message2',
                 todos: [{
                         text: 'Learn JavaScript'
                     },
@@ -47,6 +50,20 @@
             methods: {
                 reverseMessage: function () {
                     this.message = this.message.split('').reverse().join('');
+                }
+                
+            },
+            computed : {
+                back : function(){
+                    return this.message+'反过来'
+                },
+                now : function(){
+                    return Date.now()
+                }
+            },
+            watch : {
+                message2 : function(val){
+                    this.message = val+ ' ' +this.message
                 }
             }
         })
