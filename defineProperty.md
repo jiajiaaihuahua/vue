@@ -4,8 +4,6 @@
 ```html
 <html>
 <head>
-  <link rel="stylesheet" href="css/select.css">
-  <script src="jquery.js"></script>
 </head>
 	<body>
         <input type='text' id = 'model'/>
@@ -26,5 +24,5 @@
     </body>
 </html>
 ```
-* 将上述代码copy到自己本地，打开页面，按F12打开console，在console中修改model.results的值，你会发现，只要model.results发生了修改，就会触发set方法将输入框中的值改变，既然实现了Vue中watch方法的效力。
+* 将上述代码copy到自己本地，打开页面，按F12打开console，在console中修改model.results的值，你会发现，只要model.results发生了修改，就会触发set方法将输入框中的值改变，实现了Vue中watch方法的效力。
 * 参考MDN [Object.defineProperty()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
